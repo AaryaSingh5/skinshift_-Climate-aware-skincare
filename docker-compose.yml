@@ -1,0 +1,19 @@
+services:
+  skinshift:
+    build: .
+    ports: ["8000:8000"]
+    environment:
+      SECRET_KEY: ${SECRET_KEY:?set SECRET_KEY}
+      NVIDIA_API_KEY: ${NVIDIA_API_KEY:-}
+      NVIDIA_MODEL: ${NVIDIA_MODEL:-nvidia/nemotron-3.5-super-vl-120b-a12b}
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+      SMTP_FROM: ${SMTP_FROM:-}
+      VAPID_PRIVATE_KEY: ${VAPID_PRIVATE_KEY:-}
+      VAPID_PUBLIC_KEY: ${VAPID_PUBLIC_KEY:-}
+      VAPID_SUBJECT: ${VAPID_SUBJECT:-}
+      RESEARCHER_EMAIL: ${RESEARCHER_EMAIL:-}
+      RESEARCHER_PASSWORD: ${RESEARCHER_PASSWORD:-}
+    volumes: ["skin_data:/data"]
+volumes: {skin_data: {}}

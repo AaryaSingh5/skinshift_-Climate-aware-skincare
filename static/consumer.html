@@ -1,0 +1,101 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>SKINSHIFT · My Skin</title><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f9f8f5"><link rel="stylesheet" href="/static/common.css"><link rel="stylesheet" href="/static/consumer.css"></head>
+<body class="app">
+<svg width="0" height="0" focusable="false" aria-hidden="true" class="sprite"><defs>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18"/></symbol>
+<symbol id="i-home" viewBox="0 0 24 24"><path d="M3.5 11 12 3.5 20.5 11V20a1 1 0 0 1-1 1H15v-6H9v6H4.5a1 1 0 0 1-1-1z"/></symbol>
+<symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+<symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19c-1-9 5-15 15-15 1 10-5 16-13 15"/><path d="M5 19c2-5 5-8 9-10"/></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9.5L5 20v-4H4z"/></symbol>
+<symbol id="i-cam" viewBox="0 0 24 24"><path d="M3.5 8.5h3.2l1.8-2.5h7l1.8 2.5h3.2V19h-17z"/><circle cx="12" cy="13.5" r="3.4"/></symbol>
+<symbol id="i-img" viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><circle cx="9" cy="10" r="1.6"/><path d="m4 18 5-5 4 4 3-3 4 4"/></symbol>
+<symbol id="i-chev" viewBox="0 0 24 24"><path d="m9 5.5 6.5 6.5L9 18.5"/></symbol>
+<symbol id="i-info" viewBox="0 0 24 24"><path d="M12 11v6M12 7.5v.01"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+<symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4.5h6V7M6.5 7l1 13h9l1-13M10 11v6M14 11v6"/></symbol>
+</defs></svg>
+
+<main>
+<section id="gate"><h1 class="brand">SKINSHIFT</h1>
+<div class="box notice" role="region" aria-label="How your data is used"><h2>How your data is used</h2><p id="notice-text"></p><p class="mu" id="notice-ver"></p>
+<label class="ck"><input type="checkbox" id="ack"><span>I have read this and understand how my data is used.</span></label></div>
+<div class="box"><div class="row"><button class="alt" data-mode="login" type="button">Sign in</button><button class="alt" data-mode="register" type="button">New here</button></div>
+<form id="f"><label for="em">Email</label><input id="em" type="email" autocomplete="email" required>
+<label for="pw">Password (10+ characters)</label><input id="pw" type="password" minlength="10" autocomplete="current-password" required>
+<div class="ck" id="rc-row" hidden><input type="checkbox" id="rc"><span>Optional: share my de-identified check-ins with L’Oréal researchers. I can change this any time.</span></div>
+<div class="row"><button id="go" type="submit" disabled>Sign in</button></div><p class="err" id="msg" role="alert"></p></form></div>
+<p class="mu">Researcher? <a href="/research">Use the research sign-in</a>.</p></section>
+
+<section id="dash" hidden>
+<header class="top"><button class="round" id="mnu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><svg class="i"><use href="#i-menu"/></svg></button>
+<span class="wm">SKINSHIFT</span>
+<button class="round avatar" id="avt" type="button" aria-label="My profile and data"><span id="avl">S</span></button></header>
+<div id="menu" class="menu" hidden><p class="mu" id="who"></p><a href="/api/consumer/export"><button class="alt" type="button">Export my data</button></a><button class="alt" id="out" type="button">Sign out</button></div>
+
+<div id="tab-home" class="tab"><div class="box"><h2 id="rt">Checking today…</h2><p id="rw"></p><p class="mu" id="re"></p></div><div id="al"></div></div>
+
+<div id="tab-routine" class="tab" hidden>
+<div class="seg" role="tablist" aria-label="Routine sections"><button type="button" role="tab" id="sg-schedule" data-seg="schedule" aria-selected="false"><svg class="i"><use href="#i-cal"/></svg>Schedule</button><button type="button" role="tab" id="sg-progress" data-seg="progress" aria-selected="true"><svg class="i"><use href="#i-cam"/></svg>Progress</button></div>
+
+<div id="pane-progress" class="pane" role="tabpanel" aria-labelledby="sg-progress">
+<h2 class="pg">Progress</h2><p class="sub">Capture and track your skincare journey</p>
+<h3 class="ctr">Upload an Image</h3>
+<div class="tiles"><button class="tile" id="pcam" type="button"><svg class="i"><use href="#i-cam"/></svg>Camera</button><button class="tile" id="pgal" type="button"><svg class="i"><use href="#i-img"/></svg>Gallery</button></div>
+<input id="pfc" type="file" accept="image/*" capture="user" hidden aria-label="Take a skin photo"><input id="pfg" type="file" accept="image/*" hidden aria-label="Choose a skin photo">
+<p class="tip"><svg class="i ok"><use href="#i-info"/></svg><span>Capture a photo every two weeks, ensuring makeup removal and maintaining consistent angle and lighting</span></p>
+<p class="mu" id="pnext" aria-live="polite"></p>
+<p class="priv"><svg class="i"><use href="#i-check"/></svg><span>Optional. Photos are saved only on this device, never uploaded.</span></p>
+<p id="pr" role="status"></p>
+
+<div class="gh"><h3>Gallery</h3><button class="link" id="gsee" type="button" hidden>See all<svg class="i"><use href="#i-chev"/></svg></button></div>
+<div class="chips" role="group" aria-label="Photo layout"><button type="button" class="chip" id="vgrid" aria-pressed="true">Photos</button><button type="button" class="chip" id="vtl" aria-pressed="false">Timeline</button></div>
+<div id="gal" class="pgrid"></div>
+<div id="tl" class="tl" hidden></div>
+<p class="mu" id="gh" aria-live="polite"></p>
+
+<section id="cmp" class="cmpbox" hidden aria-label="Before and after comparison"><h3>Before &amp; after</h3><p class="mu" id="cmeta"></p>
+<div class="ba" id="cba"><img id="cbi" alt="Earlier photo"><img id="cai" alt="Later photo" class="top"><span class="lab l" id="clb"></span><span class="lab r" id="cla"></span><span class="bar" id="cbr" aria-hidden="true"></span></div>
+<label for="cs" class="vh">Slide to reveal the earlier or later photo</label><input type="range" id="cs" min="0" max="100" value="50">
+<div class="side" id="cside" hidden><figure><img id="csb" alt="Earlier photo"><figcaption id="csbl"></figcaption></figure><figure><img id="csa" alt="Later photo"><figcaption id="csal"></figcaption></figure></div>
+<div class="row"><button class="alt" id="cmode" type="button">Side by side</button><button class="alt" id="cclr" type="button">Clear selection</button></div>
+<p class="mu">Differences you see can come from lighting, camera, angle or make-up, not only your skin.</p></section>
+
+<details class="limits"><summary>What photos can’t tell you</summary><p>A photo shows how your skin looks in one moment. It cannot reliably measure:</p><ul><li>Skin-barrier integrity</li><li>TEWL or hydration levels</li><li>Cellular aging</li><li>Oxidative stress</li><li>Actual biological skin age</li></ul><p>Lighting, camera quality, angle and make-up all change how a photo looks. Use your history to notice visible changes, not to score your skin.</p></details>
+<details class="limits"><summary>Optional photo check readings</summary><div id="ph"></div></details>
+<div class="row"><button class="alt" id="pcl" type="button">Remove all photos from this device</button></div>
+<p class="mu">Photos live in this browser only. Clearing browser data or changing phone removes them, and they are not backed up.</p>
+</div>
+
+<div id="pane-schedule" class="pane" role="tabpanel" aria-labelledby="sg-schedule" hidden>
+<div class="box"><h2>My routine</h2><div id="plist"></div><div id="pnotes"></div></div>
+<div class="box"><h2>Scan a product</h2><label for="bc">Barcode number</label><input id="bc" inputmode="numeric"><div class="row"><button class="alt" id="bs" type="button">Scan with camera</button><button class="alt" id="bl" type="button">Look up</button></div><video id="bv" hidden playsinline></video>
+<label for="lf">Or photograph the ingredient label</label><input id="lf" type="file" accept="image/*" capture="environment"><label class="ck"><input type="checkbox" id="lag"><span>I agree to send this photo to an AI service (NVIDIA) to read the label. It is not stored.</span></label><p class="mu" id="sm"></p></div>
+<div class="box"><h2>Add a product</h2><label for="pn">Name</label><input id="pn"><label for="pc">Type</label><select id="pc"><option>cleanser</option><option>moisturiser</option><option>sunscreen</option><option>serum</option><option>other</option></select>
+<label for="pl">Ingredients (paste from the label, optional)</label><input id="pl"><label for="ps">Used</label><select id="ps"><option value="both">AM and PM</option><option value="am">AM</option><option value="pm">PM</option></select><div class="row"><button id="pa">Add product</button></div><p class="mu" id="pam"></p></div>
+</div></div>
+
+<div id="tab-care" class="tab" hidden>
+<h2 class="pg">Care</h2><p class="sub">Your profile, check-in and data</p>
+<div class="box"><h2>Today’s check-in</h2><label for="city">City</label><select id="city"></select><label for="cm">How comfortable does your skin feel? <b id="cmv">7</b>/10</label><input type="range" id="cm" min="1" max="10" step=".5" value="7">
+<div class="row"><button id="ci">Save check-in</button></div><p class="mu" id="cmsg"></p></div>
+<div class="box"><h2>My Skin Twin</h2><div id="twin"></div></div>
+<div class="box"><h2>My skin profile</h2><label for="pst">Skin type</label><select id="pst"><option value="">Not sure</option><option>oily</option><option>dry</option><option>combination</option><option>sensitive</option><option>normal</option></select>
+<label for="pco">Concerns (comma-separated)</label><input id="pco" placeholder="dryness, dullness, irritation"><label for="pgo">Goals</label><input id="pgo" placeholder="hydration, sun protection">
+<label for="pse">Sensitivities and ingredients to avoid</label><input id="pse" placeholder="fragrance, alcohol"><label class="ck"><input type="checkbox" id="pff"><span>Prefer fragrance-free</span></label>
+<label class="ck"><input type="checkbox" id="pai"><span>Let the assistant use my product list (sent to the AI provider)</span></label><label class="ck"><input type="checkbox" id="pqm"><span>Quiet mode: no proactive alerts</span></label><label class="ck"><input type="checkbox" id="pem"><span>Email me alerts (to my account email, no health details in the message)</span></label><div class="row"><button class="alt" id="pn2" type="button">Turn on push notifications</button></div><p class="mu" id="pnm"></p><div class="row"><button id="psv">Save profile</button></div><p class="mu" id="pmsg"></p></div>
+<div class="box"><h2>My data</h2><label class="ck"><input type="checkbox" id="rs"><span>Share my de-identified check-ins with researchers</span></label>
+<div class="row"><button class="danger" id="del" type="button">Delete my account</button></div><p class="mu">Deleting your account also removes the photos kept in this browser.</p></div></div>
+
+<div id="tab-ask" class="tab" hidden><div class="box"><h2>Ask SKINSHIFT</h2><p class="mu">A rule-based helper for ingredients, product combinations and “do I need this?”. Not medical advice.</p><label for="aq">Your question</label><input id="aq"><div class="row"><button id="ag">Ask</button></div><p id="aa"></p></div></div>
+
+<nav class="bnav" aria-label="Main"><button type="button" data-tab="home"><svg class="i"><use href="#i-home"/></svg><span>Home</span></button><button type="button" data-tab="routine"><svg class="i"><use href="#i-cal"/></svg><span>Routine</span></button><button type="button" data-tab="care"><svg class="i"><use href="#i-leaf"/></svg><span>Care</span></button><button type="button" data-tab="ask"><svg class="i"><use href="#i-chat"/></svg><span>Ask</span></button></nav>
+
+<dialog id="psheet" aria-labelledby="pst-h"><form method="dialog" id="pform"><h3 id="pst-h">Save this photo</h3><img id="ppv" alt="Preview of the photo you chose">
+<label for="pdate">Date taken</label><input type="date" id="pdate" required>
+<label class="ck"><input type="checkbox" id="pcn"><span>Also run a quality check. This sends the photo to our server to be analysed and discarded; only light, sharpness and a redness reading are saved.</span></label>
+<p class="mu" id="psnote">Saving keeps the photo on this device only. Nothing is uploaded unless you tick the box above.</p>
+<div class="row"><button id="psave" type="submit" value="save">Save to this device</button><button class="alt" id="pcancel" type="button">Cancel</button></div></form></dialog>
+
+<dialog id="pview" aria-labelledby="pv-h"><h3 id="pv-h"></h3><img id="pvi" alt=""><div class="row"><button id="pvsel" class="alt" type="button">Select for comparison</button><button id="pvdel" class="danger" type="button">Delete</button><button id="pvx" class="alt" type="button">Close</button></div></dialog>
+</section></main>
+<script src="/static/common.js"></script><script src="/static/consumer.js"></script><script src="/static/care.js"></script><script src="/static/photos.js"></script></body></html>

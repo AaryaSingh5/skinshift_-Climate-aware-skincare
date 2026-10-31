@@ -1,0 +1,13 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>SKINSHIFT · Research</title><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="/static/common.css"></head>
+<body class="res"><main><h1>SKINSHIFT Research</h1>
+<section id="gate"><div class="box notice" role="region" aria-label="Data-use agreement"><h2>Data-use agreement</h2><p id="notice-text"></p><p class="mu" id="notice-ver"></p>
+<label class="ck"><input type="checkbox" id="ack"><span>I agree to these terms. I know my queries are logged.</span></label></div>
+<form id="f" class="box"><label for="em">Work email</label><input id="em" type="email" autocomplete="username" required><label for="pw">Password</label><input id="pw" type="password" autocomplete="current-password" required>
+<div class="row"><button id="go" type="submit" disabled>Sign in</button></div><p class="err" id="msg" role="alert"></p></form>
+<p class="mu">Research accounts are issued by an administrator. Not a researcher? <a href="/app">Go to the participant app</a>.</p></section>
+<section id="dash" hidden><div class="row"><button class="alt" id="out">Sign out</button></div><div class="box"><h2>Climate cohorts</h2><p class="mu" id="k"></p><table id="tb"></table></div><div class="box"><h2>Data quality</h2><div id="qw"></div><table id="qt"></table></div>
+<div class="box"><h2>Hypotheses for testing</h2><div id="hy"></div><p class="mu" id="hc"></p></div>
+<div class="box"><h2>Model report</h2><pre id="mr" class="mu"></pre></div>
+<div class="box"><h2>De-identified dataset</h2><p class="mu">City-day aggregates only; a row appears only when 5+ opted-in participants contributed. The download is logged.</p><a href="/api/researcher/export"><button class="alt" type="button">Download CSV</button></a></div>
+</section></main>
+<script src="/static/common.js"></script><script src="/static/researcher.js"></script></body></html>
