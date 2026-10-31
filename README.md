@@ -1,6 +1,44 @@
 # SKINSHIFT
 Two separate sign-in pages on one FastAPI service: `/app` (participants) and `/research` (researchers). Both show the data-use notice first and require acknowledgement; each login records the notice version.
 
+# SKINSHIFT 🌿
+### Your Skin Adapts. Your Skincare Should Too.
+
+SKINSHIFT is an AI-powered, climate-aware skin resilience platform developed around the intersection of environmental intelligence, personalized skincare, and skin longevity research.
+
+It explores how environmental factors such as UV radiation, air pollution, temperature, and humidity interact with individual skin characteristics and skincare habits.
+
+The platform combines a consumer-facing mobile application with a research analytics dashboard to support personalized skincare decisions and investigate environmental influences on long-term skin health.
+
+## 🎯 Vision
+
+To make skincare more adaptive, science-driven, and accessible by connecting personal skin context with changing environmental conditions — without adding unnecessary complexity or encouraging unnecessary product purchases.
+
+## ✨ Core Features
+
+- **Climate Intelligence:** Environmental monitoring of UV, temperature, humidity, and air quality.
+- **Personal Skin Resilience Twin:** Integrates skin profiles, environmental context, and optional feedback.
+- **Adaptive Skincare Recommendations:** Context-aware guidance based on individual skin characteristics and existing routines.
+- **Product Intelligence:** Ingredient insights and existing-product analysis.
+- **AI Skin Companion:** Conversational skincare assistance grounded in curated knowledge.
+- **Visual Photo History:** Optional timeline for observing visible skin changes.
+- **Research Analytics Dashboard:** Explores environmental exposure, skin-response patterns, population insights, and research hypotheses.
+
+## 🔬 Research Focus
+
+- Climate change and skin health
+- Environmental pollution and skin resilience
+- Skin-barrier health and hydration
+- Personalized skincare strategies
+- AI-driven environmental intelligence
+- Sustainable and responsible skincare
+
+## 🌍 Impact
+
+SKINSHIFT aims to bridge consumer skincare technology and scientific research, exploring how environmental data and personalized insights can inform better skincare decisions and future cosmetic innovation.
+
+**Built for the future of climate-aware skincare.**
+
 ## Run
     pip install -r requirements.txt
     DEV=1 RESEARCHER_EMAIL=r@lab.org RESEARCHER_PASSWORD='change-me-please' uvicorn app.main:app
